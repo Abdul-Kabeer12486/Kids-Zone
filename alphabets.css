@@ -357,3 +357,22 @@ button:focus {
 }
 
 /* end of footer */
+
+
+/* for responsive  */
+
+/* 0px to 991px */
+
+@media screen and (min-width:0px) and (max-width:991px) {
+
+    .nav-bar ul li {
+        text-indent: 20px;
+        margin-top: 50px;
+    }
+
+    .nav-bar form {
+        margin-left: -20px;
+        margin-top: 50px;
+    }
+
+}
