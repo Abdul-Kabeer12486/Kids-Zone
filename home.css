@@ -63,7 +63,6 @@ body {
 
 .nav-bar form button {
     background-color: #A63333;
-    color: white;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid rgb(52, 184, 52);
@@ -72,6 +71,12 @@ body {
 .nav-bar form button:hover {
     background-color: #C8C83F;
     transition: 200ms;
+}
+
+.nav-bar form button a{
+    color: white;
+    text-decoration: none;
+    padding: 18px 0px 18px 0px;
 }
 
 /* navbar */
@@ -126,7 +131,7 @@ internet and computer speed  */
 
 .home-cards:hover {
     transform: scale(1.1);
-    background-color: rgb(37, 32, 32);
+    background-color: rgb(48, 40, 40);
     transition: 100ms;
 }
 
@@ -138,7 +143,7 @@ internet and computer speed  */
 
 .btn:hover {
     transform: scale(1.1);
-    background-color: rgb(37, 32, 32);
+    background-color: transparent;
     color: white;
 }
 

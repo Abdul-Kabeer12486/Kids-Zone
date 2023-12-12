@@ -84,7 +84,6 @@ internet and computer speed  */
 
 .nav-bar form button {
     background-color: #A63333;
-    color: white;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid rgb(52, 184, 52);
@@ -95,7 +94,38 @@ internet and computer speed  */
     transition: 200ms;
 }
 
+.nav-bar form button a{
+    color: white;
+    text-decoration: none;
+    padding: 18px 0px 18px 0px;
+}
+
 /* navbar */
+
+
+/* back-icon */
+
+
+.back-icon{
+    margin-left: 30px;
+    padding-top: 30px;
+}
+
+.back-icon a{
+    border-radius: 20px;
+    background-color: #A63333;
+    padding: 20px;
+}
+
+.back-icon a:hover{
+    background-color: #263b5e;
+}
+
+.back-icon a i{
+    color: yellow;
+}
+
+/* end of back-icon */
 
 
 /* start <vagitable-section-cards> */
@@ -113,15 +143,7 @@ internet and computer speed  */
     background-color: #A63333;
 }
 
-.vegetable-img {
-    background-size: cover;
-    width: 100%;
-    height: 32.55vh;
-    left: 346px;
-    top: 1224px;
-    border-radius: 40px 40px 0px 0px;
 
-}
 
 .animal-card-heading {
     margin-top: 10px;

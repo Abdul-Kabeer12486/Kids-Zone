@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'irish grover';
+        }
+
+        body {
+            background-color: #6F73F2;
+        }
+
+
+        .d-main-page-wrapper {
+            width: 100%;
+            height: auto;
+        }
+
+        .d-game-page-wrapper {
+            min-height: 100vh;
+            background-color: rgb(218, 189, 151);
+            margin-top: 50px;
+            display: grid;
+            width: auto;
+            height: auto;
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+
+        .d-game-left-col {
+            margin-top: 10px;
+        }
+
+        .d-game-middle-col {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            position: relative;
+        }
+
+        .d-game-right-col {
+            margin-top: 10px;
+        }
+
+        .d-game-main-wrapper {
+            max-width: 992px;
+            height: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .d-game-placeholder {
+            width: 100%;
+            height: auto;
+            background-color: rgb(167, 8, 216);
+            background: url(https://yvana.org/yvana_images/yvana_kids-games-images/kids_game_rainbow_backgroun.jpg) no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            border-radius: 10px;
+            margin-bottom: 0px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .k-memory-game-deck-cover {
+            width: 100%;
+            height: 100%;
+            background-color: indianred;
+            background: black;
+            background: url(https://yvana.org/yvana_images/yvana_kids-games-images/monkey_cartoon.png);
+            background-size: cover;
+            position: absolute;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .d-game-item-wrap {
+            width: 200px;
+            height: 250px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            box-shadow: 5px 5px 5px rgb(17, 17, 17);
+            border: 2px dotted rgb(250, 122, 186);
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /* for the sliding purpose*/
+        }
+
+        .d-game-item-image-wrap {
+            width: 100%;
+            height: auto;
+        }
+
+        .d-game-options-wrap {
+            width: 50%;
+            height: auto;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            background-color: rgb(87, 4, 76);
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        .d-game-buttons-row {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .d-game-start-btn,
+        .d-game-close-btn,
+        .d-game-instructions-btn {
+            width: auto;
+            padding: 0px 20px;
+            height: 50px;
+            background-color: rgb(33, 143, 6);
+            cursor: pointer;
+            border-radius: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            border: 2px solid rgb(255, 255, 255);
+            letter-spacing: 1.2px;
+            outline: none;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 2px black;
+            transition: all 1s;
+        }
+
+        .d-game-close-btn {
+            background-color: crimson;
+            font-size: 44px;
+        }
+
+        .d-game-close-btn:hover {
+            background-color: rgb(148, 3, 32);
+            transition: all 1s;
+        }
+
+        .d-game-start-btn:hover {
+            background-color: rgb(87, 4, 76);
+            transition: all 1s;
+
+        }
+
+        .d-game-instructions-btn {
+            background-color: rgb(2, 70, 126);
+            font-size: 44px;
+        }
+
+        .d-game-instructions-btn:hover {
+            background-color: rgb(87, 4, 76);
+            transition: all 1s;
+        }
+
+        .d-game-score-wrap {
+            width: 70%;
+            height: auto;
+            padding: 10px 0px;
+            text-align: center;
+            background-color: rgb(87, 4, 76);
+            margin-top: 10px;
+            margin-bottom: -20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-size: 20px;
+            color: rgb(226, 155, 217);
+        }
+
+        .d-game-score {
+            font-size: 25px;
+            color: yellow;
+        }
+
+        .d-game-finish-message-wrapper {
+            position: absolute;
+            width: 90%;
+            height: 100%;
+            background-color: rgb(20, 20, 20);
+            z-index: 999;
+            opacity: .95;
+            animation: toptobottomslider 2s;
+            font-family: cursive;
+            font-size: 30px;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .d-g-f-m-buttons-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 2px;
+        }
+
+        .game-share {
+            background-color: white;
+            height: auto;
+            width: auto;
+            font-family: cursive;
+            font-size: 20px;
+            align-items: center;
+            margin: 10px;
+            border-radius: 5px;
+            color: purple;
+        }
+
+        .game-share a {
+            color: purple;
+        }
+
+        .d-g-final-score,
+        .d-g-final-marks {
+            color: yellow;
+        }
+
+        .d-game-instructions {
+            width: 90%;
+            height: auto;
+            background-color: #A63333;
+            position: absolute;
+            z-index: 1012;
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 50px;
+            text-align: center;
+            margin-top: 0px;
+            display: none;
+        }
+
+
+
+
+
+        /* for responsive */
+
+        /* for 993px to 10000px */
+
+        @media screen and (min-width:993px) and (max-width:10000px) {
+
+            .d-game-instructions-mobile button {
+                display: none;
+            }
+
+        }
+
+
+        /* for 0px to 992px */
+
+        @media screen and (min-width:0px) and (max-width:992px) {
+
+            .d-game-buttons-row {
+                display: none;
+            }
+
+            .modal-content {
+                background-color: #A63333;
+                color: white;
+            }
+
+            .modal-header h5 {
+                margin-right: 10px;
+                background-color: #A63333 !important;
+            }
+
+            .d-game-start-btn {
+                margin-right: 20px;
+
+            }
+
+        }
+
+        @keyframes lefttorightanimation {
+            0% {
+                transform: translateX(0px);
+
+            }
+
+            20% {
+                transform: translateX(-250px);
+            }
+
+            80% {
+                transform: translateX(-250px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes toptobottomslider {
+            0% {
+                transform: translateY(0px);
+
+            }
+
+            20% {
+                transform: translateY(-100%);
+            }
+
+            80% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+
+        }
+
+
+
+
+
+        @media (max-width: 992px) {
+            .d-game-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .d-game-middle-col {
+                grid-row-start: 1;
+            }
+
+            .d-game-item-wrap {
+                width: 75px;
+                height: 100px;
+            }
+
+            .k-memory-game-deck-cover {
+                font-size: 50px;
+            }
+
+        }
+
+        .yvanaplaceholder {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .yvana {
+            color: darkgreen;
+            text-decoration: none;
+        }
+
+        .name {
+            color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="d-game-middle-col"> <!-- Middle and main  part of the main page area -->
+        <div class="d-game-finish-message-wrapper" id="k-m-gamefinish-message-wrapper">
+            Well Done! <br>
+            You are doing great! <br>
+            You scored <br><span class="d-g-final-score" id="k-m-game-final-score"> </span><br> out of <br><span
+                class="d-g-final-marks" id="d-g-final-marks"> 10 </span>
+            <div class="d-g-f-m-buttons-wrapper">
+                <button class="d-game-start-btn" id="k-m-game-play-again-btn" onclick="gameclose()"> Play Again
+                </button>
+                <button class="d-game-close-btn" id="k-m-f-game-close-btn"> &#215; </button>
+            </div>
+
+        </div>
+
+        <div class="d-game-score-wrap"> Your Score: <span class="d-game-score" id="k-m-game-score"> 0 </span> of <span
+                class="d-game-score" id="k-m-game-length"> 0 </div>
+        <div class="d-game-main-wrapper">
+            <div class="d-game-instructions" id="k-m-game-instructions">
+
+                1. Click on Start to start the game. <br> <br>
+                2. Deck cover will slide and pictures will be displayed for 5 seconds. <br> <br>
+                3. Memorize the picture placement within that time. <br> <br>
+                4. Program will tell you any one name of the picture by sound and word. <br> <br>
+                5. You have to make the correct guess and click on guessed deck. <br> <br>
+                6. If you succeed, you will get 1 score and if not score will not be awarded. <br> <br>
+
+            </div>
+
+            <div class="d-game-placeholder" id="m-k-m-game-placeholder">
+
+
+            </div> <!--End of d-game-place-holder -->
+            <div class="d-game-options-wrap" id="k-m-game-options-wrap">
+            </div>
+            <div class="d-game-buttons-row">
+                <button class="d-game-start-btn" id="k-m-game-start-btn"> Start </button>
+                <button class="d-game-close-btn" id="k-m-game-close-btn" onclick="gameclose()"> &#215; </button>
+                <button class="d-game-instructions-btn" id="k-m-game-instruction-btn"> &#33; </button>
+            </div>
+        </div> <!-- End of d-game-main-wrapper -->
+
+        <!-- for 0px to 992px -->
+
+        <!-- Button trigger modal -->
+
+        <div class="d-game-instructions-mobile d-flex">
+            <button class="d-game-start-btn" id="k-m-game-start-btn-mobile"> Start </button>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                How to play
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">How to Play?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            1. Click on Start to start the game. <br> <br>
+                            2. Deck cover will slide and pictures will be displayed for 5 seconds. <br> <br>
+                            3. Memorize the picture placement within that time. <br> <br>
+                            4. Program will tell you any one name of the picture by sound and word. <br> <br>
+                            5. You have to make the correct guess and click on guessed deck. <br> <br>
+                            6. If you succeed, you will get 1 score and if not score will not be awarded. <br> <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- end of 0px to 991px -->
+
+    </div>
+
+
+
+    <script>
+
+
+        var pictureArray = [["apple.jpg", "apple",], ["ball.jpg", "ball"], ["lamp.jpg", "lamp"], ["rabbit.jpg", "rabbit"], ["dog.jpg", "dog"], ["zebra.jpg", "zebra"], ["egg.jpg", "egg"], ["orange.jpg", "orange"]];
+
+        randomIndex = "";
+        var memory_values = [];
+        var memory_tile_ids = [];
+        var checkStart = 0;
+        var attempt = 0;
+        var score = 0;
+
+        var gameLength = 10;
+
+
+        var btnStart = document.getElementById("k-m-game-start-btn");
+        var btnStartmobile = document.getElementById("k-m-game-start-btn-mobile");
+        var deckCover = document.getElementsByClassName("k-memory-game-deck-cover");
+        var gameOptions = document.getElementById("k-m-game-options-wrap");
+        var finishMessage = document.getElementById("k-m-gamefinish-message-wrapper");
+        var finalScore = document.getElementById("k-m-game-final-score");
+        var gamePlaceHolder = document.getElementById('m-k-m-game-placeholder');
+        var gameInstruction = document.getElementById("k-m-game-instructions");
+        var gameInstructionBtn = document.getElementById("k-m-game-instruction-btn");
+
+        gameInstructionBtn.addEventListener("click", function () {
+            if (gameInstruction.style.display == "block") {
+                gameInstruction.style.display = "none";
+            } else {
+                gameInstruction.style.display = "block";
+            }
+
+        });
+
+
+
+        var kmGameLength = document.getElementById("k-m-game-length");
+        document.getElementById("d-g-final-marks").innerHTML = attempt;
+
+
+
+        Array.prototype.memory_tile_shuffle = function () {
+            var i = this.length, j, temp;
+            while (--i > 0) {
+                j = Math.floor(Math.random() * (i + 1));
+                temp = this[j];
+                this[j] = this[i];
+                this[i] = temp;
+            }
+        }
+
+
+        function newBoard() {
+            randomIndex = Math.floor(Math.random() * pictureArray.length);
+            tiles_flipped = 0;
+            var output = '';
+            pictureArray.memory_tile_shuffle();
+
+            for (var i = 0; i < pictureArray.length; i++) {
+                output += '<div class="d-game-item-wrap" id="d-game-item-wrap' + [i] + '"><div class="k-memory-game-deck-cover" id="k-memory-game-deck-cover' + [i] + '"onclick="gamePlay(this,\'' + pictureArray[i][0] + '\')"></div><img class="d-game-item-image-wrap" src="https://yvana.org/yvana_images/yvana_kids-games-images/' + pictureArray[i][0] + '" /></div>'
+            }
+            gamePlaceHolder.innerHTML = output;
+        }
+
+
+        newBoard();
+
+        function gameinit() {
+            newBoard();
+            if (checkStart === 1) {
+                boardDisplay();
+            }
+
+        }
+
+        function gameOption() {
+            gameOptions.innerHTML = pictureArray[randomIndex][1];
+            return gameOptions.innerHTML;
+        };
+
+        function boardDisplay() {
+            setTimeout(gameOption, 10000);
+            var kmgOptionSound = new Audio();
+            kmgOptionSound.src = "https://yvana.org/audios/kids-memory-games/" + pictureArray[randomIndex][1] + ".ogg";
+            setTimeout(function () { kmgOptionSound.play(); }, 10000);
+            for (let i = 0; i < deckCover.length; i++) {
+                deckCover[i].style.animation = "lefttorightanimation 10s";
+                var kmgsSlideOutSound = new Audio();
+                kmgsSlideOutSound.src = "https://yvana.org/audios/slideout.ogg";
+                kmgsSlideOutSound.play();
+            }
+        }
+
+        function boardDim() {
+            for (let i = 0; i < deckCover.length; i++) {
+                deckCover[i].style.background = "none";
+                deckCover[i].style.opacity = ".5";
+                deckCover[i].style.backgroundColor = "red";
+            }
+        }
+
+
+        function gamePlay(tile, val) {
+            if (checkStart === 1) {
+                if (memory_values.length == 0) {
+                    memory_values.push(val);
+                    memory_tile_ids.push(tile.id);
+                }
+                if (memory_values[0] === gameOption() + '.jpg') {
+                    score++;
+                    document.getElementById("k-m-game-score").innerHTML = score;
+                    finalScore.innerHTML = score;
+                    document.getElementById(memory_tile_ids[0]).style.display = "none";
+                    var kmgSuccessSound = new Audio();
+                    kmgSuccessSound.src = "https://yvana.org/audios/success1.ogg";
+                    kmgSuccessSound.play();
+                    memory_values = [];
+                    memory_tile_ids = [];
+                    checkStart = 1;
+                    boardDim();
+                    setTimeout(gameinit, 2000);
+                    gameOptions.innerHTML = "";
+
+                } else {
+                    var kmgfailureSound = new Audio();
+                    kmgfailureSound.src = "https://yvana.org/audios/s-a-game-wrong.ogg";
+                    kmgfailureSound.play();
+                    document.getElementById(memory_tile_ids[0]).style.display = "none";
+                    memory_values = [];
+                    memory_tile_ids = [];
+                    checkStart = 1;
+                    boardDim();
+                    setTimeout(gameinit, 2000);
+                    gameOptions.innerHTML = "";
+                }
+
+                if (attempt < gameLength - 1) {
+
+                    attempt++;
+                    kmGameLength.innerHTML = attempt;
+                    var kmgClickSound = new Audio();
+                    kmgClickSound.src = "https://yvana.org/audios/tic-toc-click.ogg";
+                    kmgClickSound.play();
+
+                } else {
+                    var kmgFinishSound = new Audio();
+                    kmgFinishSound.src = "https://yvana.org/audios/finishgame.ogg";
+                    kmgFinishSound.play();
+                    document.getElementById("k-m-gamefinish-message-wrapper").style.display = "block";
+                    checkStart = 0;
+
+                }
+            }
+        }
+
+
+        btnStart.addEventListener("click", function () {
+            gameInstruction.style.display = "none";
+            checkStart = 1;
+            attempt = 0;
+            gameinit();
+        });
+
+        btnStartmobile.addEventListener("click", function () {
+            gameInstruction.style.display = "none";
+            checkStart = 1;
+            attempt = 0;
+            gameinit();
+        });
+
+        var playAgain = document.getElementById("k-m-game-play-again-btn");
+        playAgain.addEventListener("click", function () {
+            score = 0;
+            attempt = 0;
+            checkStart = 1;
+            gameinit();
+            finishMessage.style.display = "none";
+        });
+
+
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

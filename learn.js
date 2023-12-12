@@ -9,4 +9,6 @@ window.addEventListener("load", function () {
     loader.style.display = "none";
 });
 
+ const event = new KeyboardEvent('keydown', { key: 'Enter', code: 'Enter', which: 13, keyCode: 13, });
+
 /* end of preloader */

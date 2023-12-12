@@ -11,6 +11,8 @@ window.addEventListener("load", function () {
 
 /* end of preloader */
 
+// audio of prounce alphabets
+
 const pronounceapple = new Audio();
 pronounceapple.src = "./sounds/alphabets/a-for-apple.mp3";
 
@@ -89,6 +91,8 @@ yacht.src = "./sounds/alphabets/y-for-yacht.mp3";
 const zoo = new Audio();
 zoo.src = "./sounds/alphabets/z-for-zoo.mp3";
 
+
+// end of audio
 
 
 

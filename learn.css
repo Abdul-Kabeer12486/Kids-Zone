@@ -63,7 +63,6 @@ body {
 
 .nav-bar form button {
     background-color: #A63333;
-    color: white;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid rgb(52, 184, 52);
@@ -74,7 +73,38 @@ body {
     transition: 200ms;
 }
 
+.nav-bar form button a{
+    color: white;
+    text-decoration: none;
+    padding: 18px 0px 18px 0px;
+}
+
+
 /* navbar */
+
+/* back-icon */
+
+
+.back-icon{
+    margin-left: 30px;
+    padding-top: 30px;
+}
+
+.back-icon a{
+    border-radius: 20px;
+    background-color: #A63333;
+    padding: 20px;
+}
+
+.back-icon a:hover{
+    background-color: #263b5e;
+}
+
+.back-icon a i{
+    color: yellow;
+}
+
+/* end of back-icon */
 
 
 /* this preloader is continuosly running until code are not load on browser it depends on your
