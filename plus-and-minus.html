@@ -35,7 +35,7 @@
                 <div class="logo">
                     <img src="./logo-and-icons/kids-zone-logo.png" alt="">
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -65,58 +65,277 @@
 
     <!-- end of navbar -->
 
+    <!-- back-icon -->
 
-    <input min="1" max="99" type="number" id="plus-input" placeholder="Enter a value"
-        style="width: 100px; height: 50px; outline: none;">
+    <form>
+       
 
+    <div class="back-icon">
+        <a href="./learn.html"><i class="fa-sharp fa-solid fa-arrow-left fa-lg"></i></a>
+        <button type="reset" class="btn">
+            Reset The Page
+        </button>
+    </div>
+
+    <!-- end of back-icon -->
+ 
+
+    <br>
+    <br>
+    <br>
+
+    <!-- addition section -->
+
+    <h1 class="addition-heading">Addition (+)</h1>
+
+    <div class="container-fluid mt-3 mb-4">
+        <div class="addition-input row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+
+
+            <div class="inner-addition-input mb-5 d-flex">
+                <h4> 4 </h4>
+                <h4> + </h4>
+                <h4> 1 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input1">
+                <button onclick="button1()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-addition-input mb-5 d-flex">
+                <h4> 6 </h4>
+                <h4> + </h4>
+                <h4> 2 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input2">
+                <button onclick="button2()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-addition-input mb-5 d-flex">
+                <h4> 3 </h4>
+                <h4> + </h4>
+                <h4> 4 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input3">
+                <button onclick="button3()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-addition-input mb-5 d-flex">
+                <h4> 7 </h4>
+                <h4> + </h4>
+                <h4> 2 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input4">
+                <button onclick="button4()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of addition section -->
+
+    <br>
+    <br>
+    <br>
+
+    <!-- subtraction section -->
+
+    <h1 class="subtraction-heading">Subtraction (-)</h1>
+
+    <div class="container-fluid mt-3 mb-4">
+        <div
+            class="subtraction-input row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+
+
+            <div class="inner-subtraction-input mb-5 d-flex">
+                <h4> 6 </h4>
+                <h4> - </h4>
+                <h4> 4 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input5">
+                <button onclick="button5()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-subtraction-input mb-5 d-flex">
+                <h4> 9 </h4>
+                <h4> - </h4>
+                <h4> 8 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input6">
+                <button onclick="button6()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-subtraction-input mb-5 d-flex">
+                <h4> 7 </h4>
+                <h4> - </h4>
+                <h4> 3 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input7">
+                <button onclick="button7()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+            <div class="inner-subtraction-input mb-5 d-flex">
+                <h4> 5 </h4>
+                <h4> - </h4>
+                <h4> 2 </h4>
+                <h4 class="me-2"> = </h4>
+                <input type="pin" id="input8">
+                <button onclick="button8()" type="button" class="btn ms-2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Click for answer">
+                    Ans
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of subtraction section -->
+
+   </form>
     <script>
 
-        var plusInput = document.getElementById("plus-input");
-        var intPlusInput = Number(plusInput) ;
 
-        plusInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
+        // addition section
 
-                if(intPlusInput == 5){
-                    alert("Correct answer")
-                }
-                
-                
-                else{
-                    alert("Wrong answer")
-                }
+        function button1() {
 
-              
-              
+            let input1 = document.getElementById("input1").value;
+
+
+            if (input1 == 5) {
+                alert("Correct Answer");
             }
 
-        })
+            else if (input1 !== 5) {
+                alert("Wrong Answer")
+            }
 
-      
+        }
 
+        function button2() {
+
+            let input2 = document.getElementById("input2").value;
+
+
+            if (input2 == 8) {
+                alert("Correct Answer");
+            }
+
+            else if (input2 !== 8) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        function button3() {
+
+            let input3 = document.getElementById("input3").value;
+
+
+            if (input3 == 7) {
+                alert("Correct Answer");
+            }
+
+            else if (input3 !== 7) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        function button4() {
+
+            let input4 = document.getElementById("input4").value;
+
+
+            if (input4 == 9) {
+                alert("Correct Answer");
+            }
+
+            else if (input4 !== 9) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        // end of addition section
+
+        //subtraction section
+
+        function button5() {
+
+            let input5 = document.getElementById("input5").value;
+
+
+            if (input5 == 2) {
+                alert("Correct Answer");
+            }
+
+            else if (input5 !== 2) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        function button6() {
+
+            let input6 = document.getElementById("input6").value;
+
+
+            if (input6 == 1) {
+                alert("Correct Answer");
+            }
+
+            else if (input6 !== 1) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        function button7() {
+
+            let input7 = document.getElementById("input7").value;
+
+
+            if (input7 == 4) {
+                alert("Correct Answer");
+            }
+
+            else if (input7 !== 4) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        function button8() {
+
+            let input8 = document.getElementById("input8").value;
+
+
+            if (input8 == 3) {
+                alert("Correct Answer");
+            }
+
+            else if (input8 !== 3) {
+                alert("Wrong Answer")
+            }
+
+        }
+
+        // end of subtraction section
 
     </script>
-
-
-    <!-- <h3>Trigger Button Click on Enter</h3>
-<p>Press the "Enter" key inside the input field to trigger the button.</p>
-
-<input id="myInput" placeholder="Enter a value">
-<button id="myBtn" onclick="javascript:alert('Hello World!')">Button</button>
-
-<script>
-
-var input = document.getElementById("myInput");
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("myBtn").click();
-  }
-  
-})
-
-</script> -->
 
 
 
