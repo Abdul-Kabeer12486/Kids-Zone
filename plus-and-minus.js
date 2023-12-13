@@ -64,11 +64,11 @@ function button4() {
     let input4 = document.getElementById("input4").value;
 
 
-    if (input4 == 8) {
+    if (input4 == 9) {
         alert("Correct Answer");
     }
 
-    else if (input4 !== 8) {
+    else if (input4 !== 9) {
         alert("Wrong Answer")
     }
 
