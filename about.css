@@ -140,19 +140,44 @@ main {
     margin-top: 30px;
 }
 
-main h1{
+main h1 {
     font-family: arial;
     font-size: 40px;
+    border-radius: 10px;
+    background-color: #201e1e;
+    color: white;
+    padding: 10px;
 }
 
-main h4{
+main h2 {
+    font-family: arial;
+    font-size: 40px;
+    background-color: #201e1e;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+main h3{
+    font-family: arial;
+    
+}
+
+main h4 {
     font-family: arial;
     font-size: 35px;
+    border-radius: 10px;
+    background-color: #201e1e;
+    color: white;
+    padding: 10px;
 }
 
 main p {
     text-align: center;
     font-size: 25px;
+    font-family: arial;
+}
+
+main form a{
     font-family: arial;
 }
 
