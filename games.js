@@ -367,7 +367,7 @@ function newBoard() {
     pictureArray.memory_tile_shuffle();
 
     for (var i = 0; i < pictureArray.length; i++) {
-        output += '<div class="d-game-item-wrap" id="d-game-item-wrap' + [i] + '"><div class="k-memory-game-deck-cover" id="k-memory-game-deck-cover' + [i] + '"onclick="gamePlay(this,\'' + pictureArray[i][0] + '\')"></div><img class="d-game-item-image-wrap" src="https://yvana.org/yvana_images/yvana_kids-games-images/' + pictureArray[i][0] + '" /></div>'
+        output += '<div class="d-game-item-wrap" id="d-game-item-wrap' + [i] + '"><div class="k-memory-game-deck-cover" id="k-memory-game-deck-cover' + [i] + '"onclick="gamePlay(this,\'' + pictureArray[i][0] + '\')"></div><img class="d-game-item-image-wrap" src="./images/games-2/' + pictureArray[i][0] + '" /></div>'
     }
     gamePlaceHolder.innerHTML = output;
 }
@@ -391,12 +391,12 @@ function gameOption() {
 function boardDisplay() {
     setTimeout(gameOption, 10000);
     var kmgOptionSound = new Audio();
-    kmgOptionSound.src = "https://yvana.org/audios/kids-memory-games/" + pictureArray[randomIndex][1] + ".ogg";
+    kmgOptionSound.src = "./sounds/games-2/" + pictureArray[randomIndex][1] + ".mp3";
     setTimeout(function () { kmgOptionSound.play(); }, 10000);
     for (let i = 0; i < deckCover.length; i++) {
         deckCover[i].style.animation = "lefttorightanimation 10s";
         var kmgsSlideOutSound = new Audio();
-        kmgsSlideOutSound.src = "https://yvana.org/audios/slideout.ogg";
+        kmgsSlideOutSound.src = "./sounds/games-2/slideout.mp3";
         kmgsSlideOutSound.play();
     }
 }
@@ -422,7 +422,7 @@ function gamePlay(tile, val) {
             finalScore.innerHTML = score;
             document.getElementById(memory_tile_ids[0]).style.display = "none";
             var kmgSuccessSound = new Audio();
-            kmgSuccessSound.src = "https://yvana.org/audios/success1.ogg";
+            kmgSuccessSound.src = "./sounds/games-2/success1.mp3";
             kmgSuccessSound.play();
             memory_values = [];
             memory_tile_ids = [];
@@ -433,7 +433,7 @@ function gamePlay(tile, val) {
 
         } else {
             var kmgfailureSound = new Audio();
-            kmgfailureSound.src = "https://yvana.org/audios/s-a-game-wrong.ogg";
+            kmgfailureSound.src = "./sounds/games-2/wrong-game.mp3";
             kmgfailureSound.play();
             document.getElementById(memory_tile_ids[0]).style.display = "none";
             memory_values = [];
@@ -449,12 +449,12 @@ function gamePlay(tile, val) {
             attempt++;
             kmGameLength.innerHTML = attempt;
             var kmgClickSound = new Audio();
-            kmgClickSound.src = "https://yvana.org/audios/tic-toc-click.ogg";
+            kmgClickSound.src = "./sounds/games-2/click.mp3";
             kmgClickSound.play();
 
         } else {
             var kmgFinishSound = new Audio();
-            kmgFinishSound.src = "https://yvana.org/audios/finishgame.ogg";
+            kmgFinishSound.src = "./sounds/games-2/winner.mp3";
             kmgFinishSound.play();
             document.getElementById("k-m-gamefinish-message-wrapper").style.display = "block";
             checkStart = 0;

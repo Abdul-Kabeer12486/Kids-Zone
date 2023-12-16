@@ -506,7 +506,7 @@ button sub {
     width: 100%;
     height: auto;
     background-color: rgb(167, 8, 216);
-    background: url(https://yvana.org/yvana_images/yvana_kids-games-images/kids_game_rainbow_backgroun.jpg) no-repeat;
+    background: url(./images/games-2/rainbow.jpeg) no-repeat;
     background-size: cover;
     background-position: bottom;
     display: flex;
@@ -526,7 +526,7 @@ button sub {
     height: 100%;
     background-color: indianred;
     background: black;
-    background: url(https://yvana.org/yvana_images/yvana_kids-games-images/monkey_cartoon.png);
+    background: url(./images/games-2/question-mark.png);
     background-size: cover;
     position: absolute;
     font-size: 20px;
